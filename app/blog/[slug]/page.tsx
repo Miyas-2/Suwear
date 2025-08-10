@@ -68,8 +68,6 @@ const posts: BlogPost[] = [
   },
 ];
 
-type Params = { params: { slug: string } };
-
 export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
@@ -158,6 +156,7 @@ export default async function BlogDetailPage({
 
           <hr className="my-10" />
 
+          {/* Section Komentar */}
           <section aria-labelledby="comments-title">
             <h2
               id="comments-title"
@@ -166,6 +165,7 @@ export default async function BlogDetailPage({
               Komentar
             </h2>
 
+            {/* Form komentar (dummy) */}
             <Card className="p-4 mb-6">
               <div className="flex items-start gap-3">
                 <div className="relative h-10 w-10 shrink-0">
@@ -193,6 +193,7 @@ export default async function BlogDetailPage({
               </p>
             </Card>
 
+            {/* Daftar komentar (dummy) */}
             <div className="space-y-4">
               {comments.map((c) => (
                 <Card key={c.id} className="p-4">
