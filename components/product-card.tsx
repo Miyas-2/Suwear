@@ -28,7 +28,7 @@ export function ProductCard({ data }: ProductCardProps) {
     <Card className="w-full max-w-sm border border-muted shadow-sm group transition">
       <CardHeader className="flex flex-row items-center gap-3 !pb-2 p-4">
         <Image
-          src={data.owner.profilePic}
+          src={`https://ui-avatars.com/api/?name=${data.owner.name}&size=36`}
           alt={data.owner.name}
           width={36}
           height={36}
