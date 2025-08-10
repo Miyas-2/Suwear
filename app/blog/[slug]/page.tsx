@@ -74,7 +74,11 @@ export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: Params) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) return {};
   return {
@@ -88,7 +92,11 @@ export async function generateMetadata({ params }: Params) {
   };
 }
 
-export default async function BlogDetailPage({ params }: Params) {
+export default async function BlogDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) return notFound();
 
