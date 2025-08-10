@@ -93,7 +93,6 @@ export function ServiceMap({
       </div>
 
       <MapContainer
-        // @ts-expect-error react-leaflet type mismatch in props; 'center' is valid at runtime
         center={[center.lat, center.lng] as L.LatLngTuple}
         zoom={12}
         scrollWheelZoom
@@ -102,13 +101,11 @@ export function ServiceMap({
         <Recenter lat={center.lat} lng={center.lng} />
 
         <TileLayer
-          // @ts-expect-error react-leaflet type mismatch in props;
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         {points.map((p) => (
-          // @ts-expect-error react-leaflet type mismatch in props;
           <Marker key={p.id} position={[p.lat, p.lng]} icon={defaultIcon}>
             <Popup>
               <div className="space-y-1">
