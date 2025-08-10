@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -77,7 +75,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Params) {
-  const post = posts.find((p) => p.slug === params.slug);
+  const paramsObj = await params;
+  const post = posts.find((p) => p.slug === paramsObj.slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -90,8 +89,9 @@ export async function generateMetadata({ params }: Params) {
   };
 }
 
-export default function BlogDetailPage({ params }: Params) {
-  const post = posts.find((p) => p.slug === params.slug);
+export default async function BlogDetailPage({ params }: Params) {
+  const paramsObj = await params;
+  const post = posts.find((p) => p.slug === paramsObj.slug);
   if (!post) return notFound();
 
   const comments = [
@@ -114,7 +114,6 @@ export default function BlogDetailPage({ params }: Params) {
   return (
     <main className="min-h-screen flex flex-col items-center">
       <div className="flex-1 w-full flex flex-col gap-20 items-center">
-        <Header />
         <article className="container px-4 p-5 mt-32 max-w-3xl">
           <h1 className="text-2xl md:text-3xl font-semibold mb-3">
             {post.title}
@@ -219,7 +218,6 @@ export default function BlogDetailPage({ params }: Params) {
             </div>
           </section>
         </article>
-        <Footer />
       </div>
     </main>
   );

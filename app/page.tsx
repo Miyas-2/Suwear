@@ -2,10 +2,12 @@ import { Hero } from "@/components/hero";
 import { ExploreMoreCard } from "@/components/explore-more-card";
 import { ProductCard } from "@/components/product-card";
 import { Bento } from "@/components/bento";
+import Link from "next/link";
 
 // Dummy data array
 const dummyProducts = [
   {
+    id: 1,
     owner: {
       name: "Rizky Maulana",
       profilePic: "https://randomuser.me/api/portraits/men/32.jpg",
@@ -18,6 +20,7 @@ const dummyProducts = [
     status: "Baru",
   },
   {
+    id: 2,
     owner: {
       name: "Dewi Lestari",
       profilePic: "https://randomuser.me/api/portraits/women/44.jpg",
@@ -30,6 +33,7 @@ const dummyProducts = [
     status: "Bekas",
   },
   {
+    id: 3,
     owner: {
       name: "Budi Santoso",
       profilePic: "https://randomuser.me/api/portraits/men/45.jpg",
@@ -42,6 +46,7 @@ const dummyProducts = [
     status: "Baru",
   },
   {
+    id: 4,
     owner: {
       name: "Siti Aminah",
       profilePic: "https://randomuser.me/api/portraits/women/46.jpg",
@@ -54,6 +59,7 @@ const dummyProducts = [
     status: "Baru",
   },
   {
+    id: 5,
     owner: {
       name: "Rizky Maulana",
       profilePic: "https://randomuser.me/api/portraits/men/32.jpg",
@@ -66,6 +72,7 @@ const dummyProducts = [
     status: "Baru",
   },
   {
+    id: 6,
     owner: {
       name: "Dewi Lestari",
       profilePic: "https://randomuser.me/api/portraits/women/44.jpg",
@@ -78,6 +85,7 @@ const dummyProducts = [
     status: "Bekas",
   },
   {
+    id: 7,
     owner: {
       name: "Budi Santoso",
       profilePic: "https://randomuser.me/api/portraits/men/45.jpg",
@@ -90,6 +98,7 @@ const dummyProducts = [
     status: "Baru",
   },
   {
+    id: 8,
     owner: {
       name: "Siti Aminah",
       profilePic: "https://randomuser.me/api/portraits/women/46.jpg",
@@ -121,7 +130,13 @@ export default function Home() {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {displayedProducts.map((product, idx) => (
-                  <ProductCard key={idx} data={product} />
+                  <Link
+                    key={idx}
+                    href={`/product/${product.id}`}
+                    className="block"
+                  >
+                    <ProductCard data={product} />
+                  </Link>
                 ))}
                 {showExplore && <ExploreMoreCard />}
               </div>
