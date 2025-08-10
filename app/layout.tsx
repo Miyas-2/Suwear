@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import "leaflet/dist/leaflet.css";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
