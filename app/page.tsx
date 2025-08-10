@@ -1,9 +1,7 @@
-import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { ExploreMoreCard } from "@/components/explore-more-card";
 import { ProductCard } from "@/components/product-card";
 import { Bento } from "@/components/bento";
-import { Footer } from "@/components/footer";
 
 // Dummy data array
 const dummyProducts = [
@@ -114,8 +112,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center">
       <div className="flex-1 w-full flex flex-col gap-20 items-center">
-        <Header />
-        <div className="flex-1 flex flex-col gap-20 p-5 mt-32">
+        <div className="flex-1 flex flex-col gap-20 p-5 mt-24">
           <Hero />
           <main className="container flex-1 flex flex-col gap-6 px-4">
             <section className="latest-products mb-4 md:mb-8">
@@ -137,7 +134,6 @@ export default function Home() {
             </section>
           </main>
         </div>
-        <Footer />
       </div>
     </main>
   );

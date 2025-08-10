@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Bell, Heart } from "lucide-react";
+import { Bell, Heart, MessageCircle } from "lucide-react";
 
 import {
   NavigationMenu,
@@ -27,6 +27,13 @@ export function OtherMenu() {
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link href="/notifications">
               <Bell className="text-foreground" />
+            </Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/chat">
+              <MessageCircle className="text-foreground" />
             </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>

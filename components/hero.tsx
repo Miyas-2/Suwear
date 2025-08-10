@@ -12,7 +12,7 @@ export function Hero() {
             className="font-bold hover:underline"
             rel="noreferrer"
           >
-            Suwear
+            <span className="text-emerald-700">Suwear</span>
           </a>
         </p>
         <div className="w-full p-[1px] my-8" />

@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 export function ExploreMoreCard() {
   return (
     <Card className="w-full max-w-sm border-none shadow-none group transition">
-      <Link href="/explore">
+      <Link href="/search">
         {/* Header polos */}
         <div className="h-12" />
         <CardContent className="p-0">
