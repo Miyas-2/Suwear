@@ -75,8 +75,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Params) {
-  const paramsObj = await params;
-  const post = posts.find((p) => p.slug === paramsObj.slug);
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -90,8 +90,8 @@ export async function generateMetadata({ params }: Params) {
 }
 
 export default async function BlogDetailPage({ params }: Params) {
-  const paramsObj = await params;
-  const post = posts.find((p) => p.slug === paramsObj.slug);
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
   if (!post) return notFound();
 
   const comments = [
