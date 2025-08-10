@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { ChatPopup } from "@/components/chat-popup";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -39,6 +40,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <ChatPopup />
         </ThemeProvider>
       </body>
     </html>
