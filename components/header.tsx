@@ -11,7 +11,7 @@ import { Search } from "lucide-react";
 
 export function Header() {
   return (
-    <div className="w-full fixed z-50">
+    <div className="w-full fixed z-[1001]">
       <div className="w-full bg-background flex justify-center border-b">
         <TopBar />
       </div>
@@ -46,7 +46,7 @@ export function Header() {
 
 export function HeaderBlog() {
   return (
-    <div className="w-full fixed z-50">
+    <div className="w-full fixed z-[1001]">
       <div className="w-full bg-background flex justify-center border-b">
         <TopBar />
       </div>

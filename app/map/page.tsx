@@ -1,9 +1,15 @@
-import { ServiceMap } from "@/components/service-map";
+"use client";
 
-export const metadata = {
-  title: "Peta Layanan Reparasi",
-  description: "Temukan lokasi layanan reparasi Suwear terdekat",
-};
+import dynamic from "next/dynamic";
+
+const ServiceMap = dynamic(() => import("@/components/service-map"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-[75vh]">
+      Loading map...
+    </div>
+  ),
+});
 
 export default function PetaLayananPage() {
   return (
@@ -15,7 +21,7 @@ export default function PetaLayananPage() {
               Peta Layanan Reparasi
             </h1>
           </div>
-          <ServiceMap className="h-[75vh] w-full" />
+          <ServiceMap />
         </section>
       </div>
     </main>
