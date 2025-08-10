@@ -13,6 +13,8 @@ type BlogPost = {
   content: string[];
 };
 
+type tParams = Promise<{ slug: string }>;
+
 const posts: BlogPost[] = [
   {
     slug: "panduan-memilih-bahan-sweater",
@@ -72,12 +74,8 @@ export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export async function generateMetadata({ params }: { params: tParams }) {
+  const { slug }: { slug: string } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
   return {
@@ -91,12 +89,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export default async function BlogDetailPage({ params }: { params: tParams }) {
+  const { slug }: { slug: string } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) return notFound();
 
