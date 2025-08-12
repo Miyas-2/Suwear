@@ -43,7 +43,7 @@ export default function Chat() {
     <>
       <main className="pt-16 md:pt-20 bg-background min-h-screen">
         {/* Mobile View */}
-        <div className="md:hidden">
+        <div className="md:hidden mt-8">
           {!selectedChat ? (
             // Chat List View
             <div className="h-[calc(100vh-64px)]">
@@ -130,7 +130,7 @@ export default function Chat() {
                       className={`max-w-[80%] rounded-2xl p-3 ${
                         message.sender === userData.name
                           ? "bg-[#2c6e49] text-white rounded-br-none"
-                          : "bg-background rounded-bl-none shadow-sm"
+                          : "bg-accent rounded-bl-none shadow-sm"
                       }`}
                     >
                       <p className="break-words">{message.text}</p>
@@ -290,7 +290,7 @@ export default function Chat() {
                               className={`max-w-[70%] rounded-2xl p-3.5 ${
                                 message.sender === userData.name
                                   ? "bg-[#2c6e49] text-white rounded-br-none shadow-md"
-                                  : "bg-background rounded-bl-none shadow-md"
+                                  : "bg-accent rounded-bl-none shadow-md"
                               }`}
                             >
                               <p className="break-words">{message.text}</p>
