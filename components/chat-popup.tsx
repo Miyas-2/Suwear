@@ -23,7 +23,7 @@ export function ChatPopup() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 flex items-center gap-3 bg-white text-green-600 px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 border border-green-100"
+          className="fixed bottom-4 right-4 flex items-center gap-3 bg-background text-green-600 px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 border"
         >
           <span className="text-base font-medium">Chat</span>
           <svg
@@ -44,7 +44,7 @@ export function ChatPopup() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="bg-white rounded-xl shadow-lg w-[500px] h-[400px] flex flex-col">
+        <div className="bg-background rounded-xl shadow-lg w-[500px] h-[400px] flex flex-col">
           <div className="p-4 border-b flex justify-between items-center">
             <h2 className="text-xl font-semibold">Pesan</h2>
             <button
@@ -64,8 +64,8 @@ export function ChatPopup() {
                   <div
                     key={chat.id}
                     onClick={() => setSelectedChat(chat)}
-                    className={`p-3 flex gap-2 cursor-pointer hover:bg-gray-50 transition-colors ${
-                      selectedChat?.id === chat.id ? "bg-gray-50" : ""
+                    className={`p-3 flex gap-2 cursor-pointer hover:bg-accent transition-colors ${
+                      selectedChat?.id === chat.id ? "bg-accent" : ""
                     }`}
                   >
                     <div className="relative w-10 h-10 flex-shrink-0">
@@ -125,8 +125,8 @@ export function ChatPopup() {
                         <div
                           className={`max-w-[70%] rounded-lg p-2 text-sm ${
                             message.sender === userData.name
-                              ? "bg-[#2c6e49] text-white"
-                              : "bg-gray-100"
+                              ? "bg-[#2c6e49] text-foreground"
+                              : "bg-accent"
                           }`}
                         >
                           <p className="break-words">{message.text}</p>

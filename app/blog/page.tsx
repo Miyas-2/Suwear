@@ -117,7 +117,7 @@ function BlogCard({ post }: { post: BlogPost }) {
           </p>
           <div className="mt-4 flex items-center gap-2">
             <Image
-              src={post.author.avatar}
+              src={`https://ui-avatars.com/api/?name=${post.author.name}&size=36`}
               alt={post.author.name}
               width={28}
               height={28}

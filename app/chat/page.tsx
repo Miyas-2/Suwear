@@ -41,13 +41,13 @@ export default function Chat() {
 
   return (
     <>
-      <main className="pt-16 md:pt-20 bg-gray-50 min-h-screen">
+      <main className="pt-16 md:pt-20 bg-background min-h-screen">
         {/* Mobile View */}
         <div className="md:hidden">
           {!selectedChat ? (
             // Chat List View
             <div className="h-[calc(100vh-64px)]">
-              <div className="p-4 bg-white border-b">
+              <div className="p-4 bg-background border-b">
                 <h2 className="text-xl font-semibold">Messages</h2>
               </div>
               <div className="divide-y">
@@ -55,7 +55,7 @@ export default function Chat() {
                   <div
                     key={chat.id}
                     onClick={() => setSelectedChat(chat)}
-                    className="p-4 flex gap-3 bg-white cursor-pointer active:bg-gray-50"
+                    className="p-4 flex gap-3 bg-background cursor-pointer active:bg-accent"
                   >
                     <div className="relative w-12 h-12 flex-shrink-0">
                       <Image
@@ -80,11 +80,11 @@ export default function Chat() {
             </div>
           ) : (
             // Chat Detail View
-            <div className="h-[calc(100vh-64px)] flex flex-col bg-white">
+            <div className="h-[calc(100vh-64px)] flex flex-col bg-background">
               <div className="p-4 border-b flex items-center gap-3">
                 <button
                   onClick={() => setSelectedChat(null)}
-                  className="p-2 -ml-2 hover:bg-gray-100 rounded-full"
+                  className="p-2 -ml-2 hover:bg-accent rounded-full"
                 >
                   <svg
                     className="w-5 h-5"
@@ -116,7 +116,7 @@ export default function Chat() {
                 </div>
               </div>
 
-              <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+              <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-background">
                 {selectedChat.messages.map((message) => (
                   <div
                     key={message.id}
@@ -130,7 +130,7 @@ export default function Chat() {
                       className={`max-w-[80%] rounded-2xl p-3 ${
                         message.sender === userData.name
                           ? "bg-[#2c6e49] text-white rounded-br-none"
-                          : "bg-white rounded-bl-none shadow-sm"
+                          : "bg-background rounded-bl-none shadow-sm"
                       }`}
                     >
                       <p className="break-words">{message.text}</p>
@@ -148,7 +148,7 @@ export default function Chat() {
                 ))}
               </div>
 
-              <div className="p-4 bg-white border-t">
+              <div className="p-4 bg-background border-t">
                 <div className="flex gap-2">
                   <input
                     type="text"
@@ -162,7 +162,7 @@ export default function Chat() {
                   />
                   <button
                     onClick={handleSendMessage}
-                    className="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700"
+                    className="w-10 h-10 bg-emerald-600 text-foreground rounded-full flex items-center justify-center hover:bg-emerald-700"
                   >
                     <SendIcon className="text-xl" />
                   </button>
@@ -175,11 +175,11 @@ export default function Chat() {
         {/* Desktop View - Redesigned */}
         <div className="hidden md:block py-6">
           <div className="container mx-auto">
-            <div className="bg-white rounded-xl overflow-hidden shadow-md h-[calc(100vh-140px)] border border-gray-100">
+            <div className="bg-background rounded-xl overflow-hidden shadow-md h-[calc(100vh-140px)] border">
               <div className="grid grid-cols-12 h-full">
                 {/* Chat List - Redesigned */}
-                <div className="col-span-4 flex flex-col h-full border-r border-gray-100">
-                  <div className="p-5 border-b border-gray-100 bg-gray-50">
+                <div className="col-span-4 flex flex-col h-full border-r">
+                  <div className="p-5 border-b bg-background">
                     <h2 className="text-xl font-semibold">Messages</h2>
                   </div>
                   <div className="flex-1 overflow-y-auto">
@@ -187,9 +187,9 @@ export default function Chat() {
                       <div
                         key={chat.id}
                         onClick={() => setSelectedChat(chat)}
-                        className={`p-4 flex gap-3 cursor-pointer hover:bg-gray-50 transition-colors ${
+                        className={`p-4 flex gap-3 cursor-pointer hover:bg-accent transition-colors ${
                           selectedChat?.id === chat.id
-                            ? "bg-emerald-50 border-l-4 border-emerald-500"
+                            ? "bg-emerald-50 dark:bg-emerald-950 border-l-4 border-emerald-500"
                             : ""
                         }`}
                       >
@@ -222,11 +222,11 @@ export default function Chat() {
                 </div>
 
                 {/* Chat Window - Redesigned */}
-                <div className="col-span-8 flex flex-col h-full bg-gray-50">
+                <div className="col-span-8 flex flex-col h-full bg-background">
                   {selectedChat ? (
                     <>
                       {/* Chat Header - Redesigned */}
-                      <div className="p-4 bg-white border-b border-gray-100 flex items-center justify-between">
+                      <div className="p-4 bg-background border-b flex items-center justify-between">
                         <div className="flex items-center gap-3">
                           <div className="relative w-10 h-10 flex-shrink-0">
                             <Image
@@ -247,7 +247,7 @@ export default function Chat() {
                           </div>
                         </div>
                         <div className="flex gap-2">
-                          <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-full">
+                          <button className="p-2 text-gray-500 hover:bg-accent rounded-full">
                             <svg
                               className="w-5 h-5"
                               fill="none"
@@ -290,7 +290,7 @@ export default function Chat() {
                               className={`max-w-[70%] rounded-2xl p-3.5 ${
                                 message.sender === userData.name
                                   ? "bg-[#2c6e49] text-white rounded-br-none shadow-md"
-                                  : "bg-white rounded-bl-none shadow-md"
+                                  : "bg-background rounded-bl-none shadow-md"
                               }`}
                             >
                               <p className="break-words">{message.text}</p>
@@ -324,9 +324,9 @@ export default function Chat() {
                       </div>
 
                       {/* Message Input - Redesigned */}
-                      <div className="p-4 bg-white border-t border-gray-100">
+                      <div className="p-4 bg-background border-t">
                         <div className="flex gap-2 items-center">
-                          <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-full">
+                          <button className="p-2 text-gray-500 hover:bg-accent rounded-full">
                             <svg
                               className="w-5 h-5"
                               fill="none"
@@ -346,7 +346,7 @@ export default function Chat() {
                             value={newMessage}
                             onChange={(e) => setNewMessage(e.target.value)}
                             placeholder="Type your message..."
-                            className="flex-1 px-4 py-3 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-[#2c6e49] focus:border-transparent"
+                            className="flex-1 px-4 py-3 border bg-accent rounded-full focus:outline-none focus:ring-2 focus:ring-[#2c6e49] focus:border-transparent"
                             onKeyPress={(e) => {
                               if (e.key === "Enter") handleSendMessage();
                             }}
@@ -361,8 +361,8 @@ export default function Chat() {
                       </div>
                     </>
                   ) : (
-                    <div className="flex-1 flex items-center justify-center text-gray-500 bg-gray-50">
-                      <div className="text-center p-8 bg-white rounded-xl shadow-sm border border-gray-100 max-w-md">
+                    <div className="flex-1 flex items-center justify-center text-gray-500 bg-background">
+                      <div className="text-center p-8 bg-background rounded-xl shadow-sm border max-w-md">
                         <div className="w-20 h-20 bg-[#edf5f0] rounded-full flex items-center justify-center mx-auto mb-4">
                           <svg
                             className="w-10 h-10 text-[#2c6e49]"
